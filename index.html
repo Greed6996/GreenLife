@@ -75,8 +75,10 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <!-- Background Image and Overlay -->
-    <img src="stitch/hero_background.jpg" alt="Ayurvedic Wellness Sanctuary" class="hero-bg">
+    <!-- Background Video and Overlay -->
+    <video autoplay loop muted playsinline poster="assets/hero_background.jpg" class="hero-bg">
+      <source src="assets/hero_video1.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
 
     <div class="container hero-grid">
@@ -105,6 +107,18 @@
             </span>
           </a>
         </div>
+
+        <!-- Mobile Rating (only visible on mobile via CSS) -->
+        <div class="hero-mobile-rating">
+          <div class="avatar-group">
+            <img src="assets/ananya_sharma.png" alt="Dr. Ananya Sharma">
+            <img src="assets/rohan_mehta.png" alt="Dr. Rohan Mehta">
+            <img src="assets/devika_nair.png" alt="Devika Nair">
+          </div>
+          <div class="rating-text">
+            <strong>4.8 ★★★★★</strong> (1.2k+ reviews)
+          </div>
+        </div>
       </div>
 
       <!-- Hero Right Side Floating Cards -->
@@ -112,9 +126,9 @@
         <!-- Card 1: Client Rating -->
         <div class="hero-card-rating glass-card">
           <div class="avatar-group">
-            <img src="stitch/ananya_sharma.png" alt="Dr. Ananya Sharma">
-            <img src="stitch/rohan_mehta.png" alt="Dr. Rohan Mehta">
-            <img src="stitch/devika_nair.png" alt="Devika Nair">
+            <img src="assets/ananya_sharma.png" alt="Dr. Ananya Sharma">
+            <img src="assets/rohan_mehta.png" alt="Dr. Rohan Mehta">
+            <img src="assets/devika_nair.png" alt="Devika Nair">
           </div>
           <div class="rating-info">
             <div class="rating-header">
@@ -128,7 +142,7 @@
         <!-- Card 2: Traditional Therapies -->
         <div class="hero-card-therapies glass-card">
           <div class="therapies-card-img-wrapper">
-            <img src="stitch/hero_background.jpg" alt="Traditional Therapies" class="therapies-card-img">
+            <img src="assets/hero_background.jpg" alt="Traditional Therapies" class="therapies-card-img">
           </div>
           <div class="therapies-card-content">
             <h3>Traditional Therapies</h3>
@@ -221,7 +235,7 @@
 
         <!-- Journey Card 1: Revive -->
         <article class="journey-card revive" data-category="revive">
-          <img src="stitch/journey_revive.png" alt="Follicle Renewal Therapy" class="journey-image">
+          <img src="assets/journey_revive.png" alt="Follicle Renewal Therapy" class="journey-image">
           <div class="journey-body">
             <span class="journey-badge">Growth Focus</span>
             <h3>Follicle Revive Journey</h3>
@@ -247,7 +261,7 @@
 
         <!-- Journey Card 2: Nourish -->
         <article class="journey-card nourish" data-category="nourish">
-          <img src="stitch/journey_nourish.png" alt="Deep Scalp Nourishment" class="journey-image">
+          <img src="assets/journey_nourish.png" alt="Deep Scalp Nourishment" class="journey-image">
           <div class="journey-body">
             <span class="journey-badge">Scalp Care</span>
             <h3>Scalp Nourish Journey</h3>
@@ -273,7 +287,7 @@
 
         <!-- Journey Card 3: Calm -->
         <article class="journey-card calm" data-category="calm">
-          <img src="stitch/journey_calm.png" alt="Stress & Shirodhara Relief" class="journey-image">
+          <img src="assets/journey_calm.png" alt="Stress & Shirodhara Relief" class="journey-image">
           <div class="journey-body">
             <span class="journey-badge">Mind & Root Harmony</span>
             <h3>Stress Harmony Journey</h3>
@@ -322,7 +336,7 @@
         <!-- Shirodhara Content -->
         <div class="treatment-content active" id="tab-shirodhara">
           <div class="treatment-img-container">
-            <img src="stitch/journey_calm.png" alt="Shirodhara Treatment" class="treatment-img">
+            <img src="assets/journey_calm.png" alt="Shirodhara Treatment" class="treatment-img">
           </div>
           <div class="treatment-text-box">
             <h3>Shirodhara Oil Therapy</h3>
@@ -350,7 +364,7 @@
         <!-- Shiroabhyanga Content -->
         <div class="treatment-content" id="tab-shiroabhyanga">
           <div class="treatment-img-container">
-            <img src="stitch/scalp_massage.png" alt="Shiroabhyanga Treatment" class="treatment-img">
+            <img src="assets/scalp_massage.png" alt="Shiroabhyanga Treatment" class="treatment-img">
           </div>
           <div class="treatment-text-box">
             <h3>Shiroabhyanga (Scalp Massage)</h3>
@@ -378,7 +392,7 @@
         <!-- Lepa Content -->
         <div class="treatment-content" id="tab-herbalmask">
           <div class="treatment-img-container">
-            <img src="stitch/journey_nourish.png" alt="Lepa Scalp Mask Treatment" class="treatment-img">
+            <img src="assets/journey_nourish.png" alt="Lepa Scalp Mask Treatment" class="treatment-img">
           </div>
           <div class="treatment-text-box">
             <h3>Lepa (Herbal Cleansing Mask)</h3>
@@ -422,7 +436,7 @@
         <!-- Practitioner 1 -->
         <article class="practitioner-card scroll-animate">
           <div class="practitioner-image-box">
-            <img src="stitch/ananya_sharma.png" alt="Dr. Ananya Sharma" class="practitioner-img">
+            <img src="assets/ananya_sharma.png" alt="Dr. Ananya Sharma" class="practitioner-img">
             <span class="practitioner-specialty-badge">Ayurvedic Medicine</span>
           </div>
           <div class="practitioner-info">
@@ -446,7 +460,7 @@
         <!-- Practitioner 2 -->
         <article class="practitioner-card scroll-animate">
           <div class="practitioner-image-box">
-            <img src="stitch/rohan_mehta.png" alt="Dr. Rohan Mehta" class="practitioner-img">
+            <img src="assets/rohan_mehta.png" alt="Dr. Rohan Mehta" class="practitioner-img">
             <span class="practitioner-specialty-badge">Herbal Therapeutics</span>
           </div>
           <div class="practitioner-info">
@@ -470,7 +484,7 @@
         <!-- Practitioner 3 -->
         <article class="practitioner-card scroll-animate">
           <div class="practitioner-image-box">
-            <img src="stitch/devika_nair.png" alt="Devika Nair" class="practitioner-img">
+            <img src="assets/devika_nair.png" alt="Devika Nair" class="practitioner-img">
             <span class="practitioner-specialty-badge">Shirodhara Expert</span>
           </div>
           <div class="practitioner-info">
@@ -550,21 +564,21 @@
             <div class="picker-grid">
               <div class="picker-card selected" data-value="Dr. Ananya Sharma">
                 <div class="picker-card-avatar">
-                  <img src="stitch/ananya_sharma.png" alt="Dr. Ananya">
+                  <img src="assets/ananya_sharma.png" alt="Dr. Ananya">
                 </div>
                 <h5>Dr. Ananya</h5>
                 <span>BAMS Specialist</span>
               </div>
               <div class="picker-card" data-value="Dr. Rohan Mehta">
                 <div class="picker-card-avatar">
-                  <img src="stitch/rohan_mehta.png" alt="Dr. Rohan">
+                  <img src="assets/rohan_mehta.png" alt="Dr. Rohan">
                 </div>
                 <h5>Dr. Rohan</h5>
                 <span>Scalp & Herbs</span>
               </div>
               <div class="picker-card" data-value="Devika Nair">
                 <div class="picker-card-avatar">
-                  <img src="stitch/devika_nair.png" alt="Devika Nair">
+                  <img src="assets/devika_nair.png" alt="Devika Nair">
                 </div>
                 <h5>Devika Nair</h5>
                 <span>Shirodhara</span>
@@ -674,7 +688,7 @@
   <div class="modal-overlay" id="journeyModal">
     <div class="modal-card">
       <div class="modal-img-box">
-        <img src="stitch/journey_revive.png" alt="Journey Details" class="modal-img" id="modalImg">
+        <img src="assets/journey_revive.png" alt="Journey Details" class="modal-img" id="modalImg">
         <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body">

@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badge: 'Growth Focus',
       badgeClass: 'revive',
       duration: '6 Weeks Program',
-      img: 'stitch/journey_revive.png',
+      img: 'assets/journey_revive.png',
       desc: 'A concentrated program designed specifically for thinning crown lines and early-stage alopecia. This journey focuses heavily on mechanical stimulation, traditional scalp activation formulations, and herbal supplements to nourish underlying roots.',
       steps: [
         'Week 1-2: Intensive scalp exfoliation with warm Neem & Amla pastes to unclog dormant follicle tracts.',
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badge: 'Scalp Care',
       badgeClass: 'nourish',
       duration: '4 Weeks Program',
-      img: 'stitch/journey_nourish.png',
+      img: 'assets/journey_nourish.png',
       desc: 'Formulated to target flaky, irritated, dry, or excessively oily scalps. This journey focuses on restoration of pH balance and resolving inflammation, constructing an optimal foundation for hair shaft retention.',
       steps: [
         'Week 1-2: Soothing Lepa treatments made from organic aloe, neem, and sandalwood paste to eliminate dryness.',
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badge: 'Mind & Root Harmony',
       badgeClass: 'calm',
       duration: '8 Weeks Program',
-      img: 'stitch/journey_calm.png',
+      img: 'assets/journey_calm.png',
       desc: 'For stress-induced hair loss (Telogen Effluvium). By combining traditional Shirodhara with meditative nervous-system support, we lower systemic cortisol levels to prevent hair follicles from prematurely entering the shedding phase.',
       steps: [
         'Week 1-3: Weekly Shirodhara oil streams paired with calm diaphragmatic breathing instruction.',
