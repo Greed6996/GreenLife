@@ -74,10 +74,50 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--surface);
+  background-color: #f3f2ee; /* Premium outer beige border background */
   color: var(--on-surface);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* Outer Boxed Frame Layout Container */
+.site-frame {
+  margin: 10px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .site-frame {
+    margin: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-frame {
+    margin: 24px; /* Uniform small gap around the page edges */
+  }
+}
+
+/* Inner main content rounded card container */
+.content-card {
+  background-color: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(27, 28, 26, 0.05), 0 2px 8px rgba(27, 28, 26, 0.01);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .content-card {
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(27, 28, 26, 0.06), 0 4px 12px rgba(27, 28, 26, 0.02);
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-card {
+    border-radius: 28px;
+  }
 }
 
 /* Typography styling matching DESIGN.md specs */
@@ -160,7 +200,7 @@ section {
 
 /* Header & Nav */
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -171,12 +211,38 @@ header {
 }
 
 header.scrolled {
-  padding: 5px 0;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  width: auto;
   background: rgba(250, 249, 245, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(196, 200, 191, 0.3);
+  border: 1px solid rgba(196, 200, 191, 0.3);
+  border-radius: 12px;
   box-shadow: var(--shadow-ambient);
+  padding: 5px 16px;
+}
+
+@media (min-width: 768px) {
+  header.scrolled {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    border-radius: 16px;
+    padding: 5px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header.scrolled {
+    top: 24px;
+    left: 24px;
+    right: 24px; /* Perfectly aligned to the site-frame edges */
+    border-radius: 20px;
+    padding: 5px 32px;
+  }
 }
 
 .header-container {
@@ -524,6 +590,26 @@ header.scrolled .mobile-menu-btn {
   padding-top: 120px;
   padding-bottom: 80px;
   background: #1b1c1a;
+  
+  /* Standalone rounded card visual style */
+  border-radius: 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 12px 40px rgba(27, 28, 26, 0.05), 0 2px 8px rgba(27, 28, 26, 0.01);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    border-radius: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 20px 60px rgba(27, 28, 26, 0.06), 0 4px 12px rgba(27, 28, 26, 0.02);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    border-radius: 28px;
+    margin-bottom: 24px; /* Matches the site-frame margin for a perfectly uniform grid gap */
+  }
 }
 
 .hero-bg {
@@ -876,6 +962,240 @@ header.scrolled .mobile-menu-btn {
   font-size: 1.35rem;
   margin-bottom: 12px;
   color: var(--primary);
+}
+
+/* Navigation Dropdown Menu styling */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--surface-container-lowest);
+  min-width: 180px;
+  box-shadow: var(--shadow-tinted);
+  border-radius: var(--rounded-default);
+  border: 1px solid rgba(196, 200, 191, 0.4);
+  padding: 8px 0;
+  z-index: 1010;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  transition: var(--transition-smooth);
+}
+
+.dropdown-item:hover {
+  background-color: var(--surface-container-low);
+  color: var(--primary);
+}
+
+/* DNA Diet (Nutrigenomics) Section */
+.DNA-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 1024px) {
+  .DNA-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 80px;
+  }
+}
+
+.DNA-visual {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.dna-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--rounded-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-tinted);
+}
+
+/* Clinical Specialties Explorer */
+.specialties-explorer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+@media (min-width: 1024px) {
+  .specialties-explorer {
+    grid-template-columns: 300px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+}
+
+.specialties-tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(196, 200, 191, 0.3);
+}
+
+.specialties-tabs::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+@media (min-width: 1024px) {
+  .specialties-tabs {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 1px solid rgba(196, 200, 191, 0.3);
+    padding-bottom: 0;
+    padding-right: 16px;
+  }
+}
+
+.spec-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 12px 18px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition-smooth);
+}
+
+.spec-tab-btn .tab-icon {
+  font-size: 1.2rem;
+}
+
+.spec-tab-btn.active, .spec-tab-btn:hover {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+@media (min-width: 1024px) {
+  .spec-tab-btn {
+    width: 100%;
+  }
+}
+
+.specialties-content-panel {
+  background-color: var(--surface-container-lowest);
+  border-radius: var(--rounded-xl);
+  border: 1px solid rgba(196, 200, 191, 0.4);
+  padding: 32px;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-ambient);
+}
+
+@media (min-width: 768px) {
+  .specialties-content-panel {
+    padding: 48px;
+  }
+}
+
+.spec-content {
+  display: none;
+  animation: fadeIn 0.4s ease;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.spec-content.active {
+  display: flex;
+}
+
+.spec-header {
+  margin-bottom: 28px;
+}
+
+.spec-header h3 {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.spec-conditions {
+  margin-bottom: 36px;
+  flex-grow: 1;
+}
+
+.spec-conditions h4 {
+  font-size: 1.1rem;
+  color: var(--on-surface);
+  margin-bottom: 16px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.condition-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cond-tag {
+  background-color: var(--surface-container-low);
+  border: 1px solid rgba(196, 200, 191, 0.3);
+  color: var(--on-surface-variant);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--rounded-default);
+  transition: var(--transition-smooth);
+}
+
+.cond-tag:hover {
+  background-color: var(--on-primary-container);
+  color: var(--primary);
+  border-color: var(--primary-container);
+}
+
+.spec-booking-trigger {
+  align-self: flex-start;
 }
 
 /* Wellness Journeys Section */
@@ -1902,7 +2222,8 @@ footer {
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .scroll-animate.animated {
@@ -2106,5 +2427,290 @@ footer {
     font-size: 0.8rem;
   }
 }
+
+/* ==========================================================================
+   Ayurvedic Elements Wavy Carousel
+   ========================================================================== */
+.ayurvedic-wave-section {
+  padding: 48px 0 80px 0;
+  background-color: var(--surface-container-lowest);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(196, 200, 191, 0.3);
+  width: 100%;
+}
+
+.ayurvedic-wave-section .wave-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  padding: 0 var(--margin-mobile, 20px);
+}
+
+.ayurvedic-wave-section .wave-header .subtitle {
+  color: var(--copper);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.ayurvedic-wave-section .wave-header h3 {
+  color: var(--primary);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 16px;
+  font-family: var(--font-serif);
+}
+
+.ayurvedic-wave-section .wave-header p {
+  color: var(--on-surface-variant);
+  font-size: 1rem;
+}
+
+.wave-marquee {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 60px 0;
+}
+
+/* Fade gradients on side overlays */
+.wave-marquee::before,
+.wave-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.wave-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--surface-container-lowest) 20%, transparent);
+}
+
+.wave-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--surface-container-lowest) 20%, transparent);
+}
+
+.wave-track {
+  display: flex;
+  gap: 48px;
+  animation: scroll-wave 45s linear infinite;
+  padding-right: 48px;
+}
+
+/* Pause animation on hover */
+.wave-marquee:hover .wave-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.wave-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transform: translateY(var(--offset-y));
+}
+
+.wave-item-bob {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wave-bob 5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.28s);
+}
+
+@keyframes wave-bob {
+  0%, 100% {
+    transform: translateY(-16px);
+  }
+  50% {
+    transform: translateY(16px);
+  }
+}
+
+.wave-item {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  background-color: var(--surface-bright);
+  border: 1px solid var(--outline-variant);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-ambient);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.3s ease, 
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* 2 complete cycles of sine wave over 18 items */
+.wave-item-wrapper:nth-child(18n+1)  { --offset-y: 0px; }
+.wave-item-wrapper:nth-child(18n+2)  { --offset-y: 26px; }
+.wave-item-wrapper:nth-child(18n+3)  { --offset-y: 39px; }
+.wave-item-wrapper:nth-child(18n+4)  { --offset-y: 35px; }
+.wave-item-wrapper:nth-child(18n+5)  { --offset-y: 14px; }
+.wave-item-wrapper:nth-child(18n+6)  { --offset-y: -14px; }
+.wave-item-wrapper:nth-child(18n+7)  { --offset-y: -35px; }
+.wave-item-wrapper:nth-child(18n+8)  { --offset-y: -39px; }
+.wave-item-wrapper:nth-child(18n+9)  { --offset-y: -26px; }
+.wave-item-wrapper:nth-child(18n+10) { --offset-y: 0px; }
+.wave-item-wrapper:nth-child(18n+11) { --offset-y: 26px; }
+.wave-item-wrapper:nth-child(18n+12) { --offset-y: 39px; }
+.wave-item-wrapper:nth-child(18n+13) { --offset-y: 35px; }
+.wave-item-wrapper:nth-child(18n+14) { --offset-y: 14px; }
+.wave-item-wrapper:nth-child(18n+15) { --offset-y: -14px; }
+.wave-item-wrapper:nth-child(18n+16) { --offset-y: -35px; }
+.wave-item-wrapper:nth-child(18n+17) { --offset-y: -39px; }
+.wave-item-wrapper:nth-child(18n+18) { --offset-y: -26px; }
+
+.wave-item svg {
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
+  transition: color 0.3s ease, transform 0.4s ease;
+}
+
+/* Hover effects */
+.wave-item:hover {
+  transform: scale(1.18);
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-tinted);
+  z-index: 20;
+}
+
+.wave-item:hover svg {
+  color: var(--on-primary);
+  transform: rotate(10deg);
+}
+
+/* Tooltip design */
+.wave-item .tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background-color: var(--inverse-surface);
+  color: var(--inverse-on-surface);
+  padding: 10px 14px;
+  border-radius: var(--rounded-md);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wave-item .tooltip strong {
+  font-size: 0.875rem;
+  color: #fff;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.wave-item .tooltip span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+}
+
+/* Tooltip pointer */
+.wave-item .tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--inverse-surface) transparent transparent transparent;
+}
+
+.wave-item:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile responsive scaling */
+@media (max-width: 768px) {
+  .ayurvedic-wave-section {
+    padding: 32px 0 60px 0;
+  }
+  .wave-marquee {
+    padding: 40px 0;
+  }
+  .wave-item {
+    width: 60px;
+    height: 60px;
+  }
+  .wave-item svg {
+    width: 24px;
+    height: 24px;
+  }
+  .wave-track {
+    gap: 24px;
+    padding-right: 24px;
+  }
+  .wave-item-bob {
+    animation: wave-bob-mobile 5s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.28s);
+  }
+  
+  @keyframes wave-bob-mobile {
+    0%, 100% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }
+  
+  /* Scaled wave heights for mobile to avoid overlapping */
+  .wave-item-wrapper:nth-child(18n+1)  { --offset-y: 0px; }
+  .wave-item-wrapper:nth-child(18n+2)  { --offset-y: 15px; }
+  .wave-item-wrapper:nth-child(18n+3)  { --offset-y: 22px; }
+  .wave-item-wrapper:nth-child(18n+4)  { --offset-y: 20px; }
+  .wave-item-wrapper:nth-child(18n+5)  { --offset-y: 8px; }
+  .wave-item-wrapper:nth-child(18n+6)  { --offset-y: -8px; }
+  .wave-item-wrapper:nth-child(18n+7)  { --offset-y: -20px; }
+  .wave-item-wrapper:nth-child(18n+8)  { --offset-y: -22px; }
+  .wave-item-wrapper:nth-child(18n+9)  { --offset-y: -15px; }
+  .wave-item-wrapper:nth-child(18n+10) { --offset-y: 0px; }
+  .wave-item-wrapper:nth-child(18n+11) { --offset-y: 15px; }
+  .wave-item-wrapper:nth-child(18n+12) { --offset-y: 22px; }
+  .wave-item-wrapper:nth-child(18n+13) { --offset-y: 20px; }
+  .wave-item-wrapper:nth-child(18n+14) { --offset-y: 8px; }
+  .wave-item-wrapper:nth-child(18n+15) { --offset-y: -8px; }
+  .wave-item-wrapper:nth-child(18n+16) { --offset-y: -20px; }
+  .wave-item-wrapper:nth-child(18n+17) { --offset-y: -22px; }
+  .wave-item-wrapper:nth-child(18n+18) { --offset-y: -15px; }
+}
+
 
 
