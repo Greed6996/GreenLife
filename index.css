@@ -130,10 +130,54 @@ h1, h2, h3, h4, h5, h6 {
 
 .headline-xl {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4rem); /* 64px max-ish */
-  font-weight: 600;
-  line-height: 1.1;
+  font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1.15;
   letter-spacing: -0.02em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title-row-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #faf9f5;
+}
+
+.title-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, #ffffff 30%, #cbe3ca 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-row-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.title-gradient {
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 40%, var(--copper) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aligned-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .headline-lg {
@@ -169,6 +213,10 @@ a {
   color: inherit;
   text-decoration: none;
   transition: var(--transition-smooth);
+}
+
+.mobile-br {
+  display: none;
 }
 
 /* Base Layout Grid & Spacing */
@@ -250,6 +298,9 @@ header.scrolled {
   justify-content: space-between;
   align-items: center;
   height: 90px;
+  max-width: 100% !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
   transition: var(--transition-smooth);
 }
 
@@ -260,7 +311,7 @@ header.scrolled .header-container {
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 700;
@@ -272,75 +323,94 @@ header.scrolled .logo {
   color: var(--primary);
 }
 
+.logo img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition-smooth);
+}
+
+header.scrolled .logo img {
+  height: 32px;
+}
+
 .logo svg {
   width: 28px;
   height: 28px;
   fill: currentColor;
 }
 
+/* Nav Links as Pills/Capsules matching the reference image */
 .nav-links {
   display: none;
   align-items: center;
-  gap: 32px;
+  gap: 8px; /* close spacing of pills */
+  background: rgba(255, 255, 255, 0.08); /* glass track background */
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-@media (min-width: 1024px) {
-  .nav-links {
-    display: flex;
-  }
+header.scrolled .nav-links {
+  background: rgba(79, 96, 77, 0.05); /* organic primary color tinted background */
+  border-color: rgba(79, 96, 77, 0.08);
 }
 
 .nav-link {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  position: relative;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 8px 18px;
+  border-radius: 9999px;
   transition: var(--transition-smooth);
 }
 
 .nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: white;
-  transition: var(--transition-smooth);
+  display: none; /* remove underline indicator completely */
 }
 
 .nav-link:hover {
   color: white;
-}
-
-.nav-link:hover::after {
-  width: 100%;
+  background: rgba(255, 255, 255, 0.15); /* light fill on hover */
 }
 
 .nav-link.active {
-  color: white;
+  color: #1b1c1a;
+  background: white; /* solid white background like Dentora active item */
   font-weight: 600;
 }
 
-.nav-link.active::after {
-  width: 100%;
-}
-
+/* Scrolled Nav Link States */
 header.scrolled .nav-link {
   color: var(--on-surface-variant);
 }
 
-header.scrolled .nav-link::after {
-  background-color: var(--primary);
-}
-
 header.scrolled .nav-link:hover {
   color: var(--primary);
+  background: rgba(79, 96, 77, 0.08);
 }
 
 header.scrolled .nav-link.active {
-  color: var(--primary);
+  color: white;
+  background: var(--primary); /* solid primary color active item when scrolled */
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    flex: 1 1 0%;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: center;
+  }
+  .nav-cta-wrapper {
+    flex: 1 1 0%;
+    display: flex !important;
+    justify-content: flex-end;
+  }
 }
 
 .header-cta-group {
@@ -636,6 +706,9 @@ header.scrolled .mobile-menu-btn {
   position: relative;
   z-index: 3;
   width: 100%;
+  max-width: 100% !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
   display: grid;
   grid-template-columns: 1fr;
   gap: 48px;
@@ -646,6 +719,21 @@ header.scrolled .mobile-menu-btn {
   .hero-grid {
     grid-template-columns: 1.15fr 0.85fr;
     gap: 64px;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    position: static !important;
+  }
+  .hero-cards-col {
+    align-self: start;
+    margin-top: 16px;
+    position: static !important;
+  }
+  .hero-card-therapies {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    margin: 0;
+    z-index: 15;
   }
 }
 
@@ -664,6 +752,7 @@ header.scrolled .mobile-menu-btn {
   font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 24px;
+  white-space: nowrap;
 }
 
 .hero-badge-pill .dot {
@@ -2113,6 +2202,7 @@ footer {
 .footer-about .logo {
   color: white;
   margin-bottom: 20px;
+  margin-right: 0;
 }
 
 .footer-about p {
@@ -2233,6 +2323,14 @@ footer {
 
 /* Mobile Optimizations (Screens smaller than 768px) */
 @media (max-width: 767px) {
+  .mobile-br {
+    display: inline;
+  }
+
+  .hero-bg {
+    object-position: 70% center;
+  }
+
   .hero {
     height: 100vh;
     height: 100svh;
@@ -2265,8 +2363,8 @@ footer {
   }
   
   .hero-content h1 {
-    font-size: clamp(2.2rem, 8.5vw, 2.75rem) !important;
-    line-height: 1.15;
+    font-size: clamp(1.8rem, 8.5vw, 2.6rem) !important;
+    line-height: 1.25;
     margin-bottom: 16px;
     letter-spacing: -0.01em;
   }
@@ -2285,6 +2383,26 @@ footer {
   .btn-explore-pill {
     width: 100%;
     justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-explore-pill:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+  }
+
+  .btn-explore-pill .arrow-circle {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-explore-pill:hover .arrow-circle {
+    background-color: var(--copper);
   }
   
   /* Mobile-only rating block styles */
@@ -2330,7 +2448,9 @@ footer {
   }
   
   .headline-xl {
-    font-size: clamp(2rem, 8vw, 2.75rem);
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    gap: 8px;
+    line-height: 1.25;
   }
   
   section {
@@ -2664,6 +2784,10 @@ footer {
   }
   .wave-marquee {
     padding: 40px 0;
+  }
+  .wave-marquee::before,
+  .wave-marquee::after {
+    width: 40px;
   }
   .wave-item {
     width: 60px;

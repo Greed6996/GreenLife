@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Force scroll to top/hero section on refresh
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+  if (window.location.hash) {
+    history.replaceState(null, null, ' ');
+  }
+
   // --- Booking State Variables ---
   let selectedPractitioner = "Dr. Ananya Sharma";
   let selectedDate = "Jun 05";
