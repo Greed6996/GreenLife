@@ -398,7 +398,7 @@ header.scrolled .nav-link.active {
   background: var(--primary); /* solid primary color active item when scrolled */
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1250px) {
   .logo {
     flex: 1 1 0%;
   }
@@ -410,6 +410,20 @@ header.scrolled .nav-link.active {
     flex: 1 1 0%;
     display: flex !important;
     justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1250px) and (max-width: 1440px) {
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  .nav-links {
+    gap: 4px;
+  }
+  .header-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
@@ -494,7 +508,7 @@ header.scrolled .mobile-menu-btn {
   color: var(--on-surface);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1250px) {
   .mobile-menu-btn {
     display: none;
   }
@@ -729,10 +743,7 @@ header.scrolled .mobile-menu-btn {
     position: static !important;
   }
   .hero-card-therapies {
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
-    margin: 0;
+    position: relative;
     z-index: 15;
   }
 }
@@ -2345,9 +2356,10 @@ footer {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 0;
+    padding-top: 60px;
   }
   
   .hero-content {
@@ -2376,8 +2388,13 @@ footer {
     color: rgba(255, 255, 255, 0.85);
   }
 
+  .hero-desc-desktop {
+    display: none !important;
+  }
+
   .hero-btn-wrapper {
     width: 100%;
+    margin-top: 150px;
   }
 
   .btn-explore-pill {
